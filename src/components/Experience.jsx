@@ -56,7 +56,7 @@ export default function Experience() {
               </ul>
 
               {job.short === "Suochen Information" && (
-                <div className="mt-8">
+                <div className="mt-10 mb-2">
                   <a
                     href="https://www.demxs.com/"
                     target="_blank"
