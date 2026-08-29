@@ -74,7 +74,7 @@ export default function About() {
               <div className="flex items-center gap-2.5 text-white/60 mb-5">
                 <Sparkles size={18} className="text-sprout" />
                 <span className="text-[13px] uppercase tracking-[0.2em]">
-                  Off the clock
+                  Outside work
                 </span>
               </div>
               <div className="flex flex-wrap gap-2.5">
