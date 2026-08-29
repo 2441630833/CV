@@ -56,14 +56,14 @@ export default function Experience() {
               </ul>
 
               {job.short === "Suochen Information" && (
-                <div className="mt-7 pt-5 border-t border-moss-700/10">
+                <div className="mt-8">
                   <a
                     href="https://www.demxs.com/"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-moss-700 hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-2 rounded-full border border-moss-700/25 bg-moss-700/5 px-5 py-2.5 text-sm font-medium text-moss-700 transition-all hover:bg-moss-700 hover:text-sprout hover:border-moss-700 hover:gap-3"
                   >
-                    demxs.com <ArrowUpRight size={15} />
+                    Visit demxs.com <ArrowUpRight size={15} />
                   </a>
                 </div>
               )}
