@@ -95,7 +95,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="dock-item inline-flex items-center gap-2 rounded-lg border border-sprout/40 bg-sprout/15 text-sprout px-3.5 h-9 sm:h-10 text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 hover:bg-sprout/25"
+            className="dock-item inline-flex items-center gap-2 rounded-lg border border-transparent px-3.5 h-9 sm:h-10 text-[11px] font-medium uppercase tracking-[0.14em] text-white/45 hover:text-white/90 transition-colors duration-200"
           >
             <span className="hidden sm:inline">Get in touch</span>
             <span className="sm:hidden">Contact</span>
