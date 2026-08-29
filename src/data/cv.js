@@ -76,7 +76,7 @@ export const education = [
     school: "University of Kent, UK",
     degree: "MSc Computer Science — Graduated with Distinction",
     location: "Canterbury, Kent, England",
-    period: "Sep 2022 – Sep 2025",
+    period: "Sep 2022 – Sep 2023",
     detail:
       "AI Systems Implementation, Data Mining & Knowledge Discovery, Problem Solving with Data & Text, Software Engineering, AI Programming, Cognitive Neural Networks, Natural Computing, Systems Architecture.",
   },
