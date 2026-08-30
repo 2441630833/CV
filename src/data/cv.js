@@ -98,6 +98,16 @@ export const education = [
 
 export const projects = [
   {
+    name: "Mobius — Self-Evolving Agentic Development Environment",
+    tag: "AI Agents · Creator",
+    blurb:
+      "A self-evolving agentic development environment (ADE). Mobius gets smarter the more you use it: it observes how you work, distills successful operations into reusable Skills, and automatically matches the most relevant Skill to each task through an intent-recognition recommendation algorithm. The agent's capabilities accumulate with use instead of starting from zero every conversation.",
+    links: [
+      { label: "github.com/2441630833/Mobius", url: "https://github.com/2441630833/Mobius" },
+    ],
+    highlights: ["Agentic IDE", "Self-evolving Skills", "Intent recognition"],
+  },
+  {
     name: "Physical World Model (GNN + World Model)",
     tag: "Embodied AI · Lead",
     blurb:
@@ -186,6 +196,7 @@ export const projects = [
 
 export const skills = [
   "AI / LLMs",
+  "Agentic AI",
   "Physical AI",
   "World Models",
   "GNN",
