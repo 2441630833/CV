@@ -144,13 +144,23 @@ export const projects = [
     links: [],
     highlights: ["Datasets & models", "Sim training env", "Deploy pipeline"],
   },
-  {
+    {
     name: "Suochen Official Website",
     tag: "Web · Principal",
     blurb:
       "Principal builder of the new version of the Suochen Information Technology official corporate website.",
     links: [{ label: "demxs.com", url: "https://www.demxs.com/" }],
     highlights: ["Corporate site", "Lead build", "Shipped"],
+  },
+  {
+    name: "出国留学助手 (Study Abroad Assistant)",
+    tag: "Gov Platform · Principal",
+    blurb:
+      "Official platform of the Chinese Service Center for Scholarly Exchange (留服中心). I led this project during my time at CSCSE — a flagship study-abroad service platform that has already served hundreds of thousands of international students, covering consultation, application support and cross-border study services for Chinese students abroad.",
+    links: [
+      { label: "cglxzs.cscse.edu.cn", url: "https://cglxzs.cscse.edu.cn/" },
+    ],
+    highlights: ["CSCSE flagship", "Hundreds of thousands of users", "Lead build"],
   },
   {
     name: "Uigenius",
