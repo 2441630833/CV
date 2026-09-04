@@ -190,7 +190,20 @@ export const projects = [
         url: "https://www.npmjs.com/package/longze-vue3-video-player",
       },
     ],
-    highlights: ["Vue 3", "npm published", "Solo maintainer"],
+        highlights: ["Vue 3", "npm published", "Solo maintainer"],
+  },
+  {
+    name: "Longze-copyright-code-generator",
+    tag: "Open Source · Solo",
+    blurb:
+      "An automated tool for generating the software copyright source-code documents (软著源代码) required for Chinese software-copyright registration, cutting the manual effort of producing source-code design files.",
+    links: [
+      {
+        label: "github.com/2441630833/Longze-copyright-code-generator",
+        url: "https://github.com/2441630833/Longze-copyright-code-generator",
+      },
+    ],
+    highlights: ["Soft-copyright docs", "Automation", "Solo maintainer"],
   },
 ];
 
