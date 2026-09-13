@@ -1,36 +1,74 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, ArrowRight, Mail, Phone, MapPin, Rss } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import SectionHeading from "./SectionHeading.jsx";
 import { profile } from "../data/cv.js";
 
-const TOPICS = ["Job opportunity", "Freelance", "Collaboration", "Just saying hi"];
+const TOPIC_KEYS = ["job", "freelance", "collaboration", "hello"];
 
 const easeOut = [0.16, 1, 0.3, 1];
 
-const channels = [
-  { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-  { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
-  { icon: MapPin, label: "Location", value: profile.location, href: null },
-  { icon: Rss, label: "Blog", value: "CSDN · kentturing", href: profile.blog },
-];
-
 export default function Contact() {
+  const { t } = useTranslation();
   const [topics, setTopics] = useState([]);
 
-  const toggle = (t) =>
-    setTopics((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
+  const toggle = (key) =>
+    setTopics((prev) =>
+      prev.includes(key) ? prev.filter((x) => x !== key) : [...prev, key]
+    );
+
+  const topicLabels = topics.map((key) => t(`contact.topics.${key}`));
+  const joined = topicLabels.join(", ");
+
+  const subject =
+    topics.length > 0
+      ? t("contact.mail.subject", { topics: joined })
+      : t("contact.mail.subjectFallback");
+  const body =
+    topics.length > 0
+      ? t("contact.mail.body", { topics: joined })
+      : t("contact.mail.bodyFallback");
 
   const mailto = `mailto:${profile.email}?subject=${encodeURIComponent(
-    `Let's talk — ${topics.join(", ") || "a project"}`
-  )}&body=${encodeURIComponent(
-    `Hi Tim,\n\nI'm reaching out about: ${topics.join(", ") || "..."}\n\n`
-  )}`;
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+
+  const channels = [
+    {
+      icon: Mail,
+      label: t("contact.email"),
+      value: profile.email,
+      href: `mailto:${profile.email}`,
+    },
+    {
+      icon: Phone,
+      label: t("contact.phone"),
+      value: profile.phone,
+      href: `tel:${profile.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: MapPin,
+      label: t("contact.location"),
+      value: t("profile.location"),
+      href: null,
+    },
+    {
+      icon: Rss,
+      label: t("contact.blog"),
+      value: profile.blogLabel,
+      href: profile.blog,
+    },
+  ];
 
   return (
     <section id="contact" className="relative px-6 sm:px-10 lg:px-16 py-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="04" label="Contact" title="Let's build something." />
+        <SectionHeading
+          index={t("contact.index")}
+          label={t("contact.label")}
+          title={t("contact.title")}
+        />
 
         <div className="grid lg:grid-cols-5 gap-6">
           {/* Inquiry card */}
@@ -42,18 +80,18 @@ export default function Contact() {
             className="paper lg:col-span-3 p-8 sm:p-10"
           >
             <h3 className="text-2xl font-normal tracking-tight text-paperink mb-2">
-              What's on your mind?
+              {t("contact.heading")}
             </h3>
-            <p className="text-paperlabel mb-7">Select all that apply</p>
+            <p className="text-paperlabel mb-7">{t("contact.selectHint")}</p>
 
             <div className="flex flex-wrap gap-3">
-              {TOPICS.map((t) => {
-                const active = topics.includes(t);
+              {TOPIC_KEYS.map((key) => {
+                const active = topics.includes(key);
                 return (
                   <motion.button
-                    key={t}
+                    key={key}
                     type="button"
-                    onClick={() => toggle(t)}
+                    onClick={() => toggle(key)}
                     whileTap={{ scale: 0.95 }}
                     className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-medium transition-colors duration-200 ${
                       active
@@ -79,7 +117,7 @@ export default function Contact() {
                         </motion.span>
                       )}
                     </AnimatePresence>
-                    {t}
+                    {t(`contact.topics.${key}`)}
                   </motion.button>
                 );
               })}
@@ -94,7 +132,7 @@ export default function Contact() {
                   exit={{ opacity: 0 }}
                   className="italic text-xs text-paperink mt-8"
                 >
-                  Please click to select a topic above.
+                  {t("contact.placeholder")}
                 </motion.p>
               ) : (
                 <motion.div
@@ -107,14 +145,14 @@ export default function Contact() {
                 >
                   <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl bg-white border border-black/10 px-5 py-4">
                     <p className="text-[15px] text-paperink">
-                      Ready to talk about:{" "}
-                      <span className="font-medium">{topics.join(", ")}</span>
+                      {t("contact.ready")}{" "}
+                      <span className="font-medium">{joined}</span>
                     </p>
                     <a
                       href={mailto}
                       className="inline-flex items-center gap-2 text-moss-700 uppercase tracking-[0.14em] text-xs font-semibold whitespace-nowrap hover:gap-3 transition-all"
                     >
-                      Let's go <ArrowRight size={15} />
+                      {t("contact.letsGo")} <ArrowRight size={15} />
                     </a>
                   </div>
                 </motion.div>
@@ -131,7 +169,7 @@ export default function Contact() {
             className="lg:col-span-2 rounded-[28px] p-8 sm:p-10 bg-moss-600 border border-white/10 flex flex-col"
           >
             <h3 className="text-sm uppercase tracking-[0.24em] text-white/50 mb-7">
-              Direct channels
+              {t("contact.directChannels")}
             </h3>
             <ul className="space-y-5 flex-1">
               {channels.map((c) => {

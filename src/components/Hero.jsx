@@ -1,10 +1,9 @@
 import { motion } from "motion/react";
 import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useTypewriter } from "../hooks/useTypewriter.js";
-import { profile, stats } from "../data/cv.js";
+import { profile } from "../data/cv.js";
 import SylvaMoss from "./SylvaMoss.jsx";
-
-const HEADLINE = "I build AI into\nthe physical world.";
 
 function StatMark() {
   return (
@@ -27,7 +26,10 @@ function StatMark() {
 const easeOut = [0.16, 1, 0.3, 1];
 
 export default function Hero() {
-  const { displayed, done } = useTypewriter(HEADLINE, 34, 700);
+  const { t } = useTranslation();
+  const headline = t("hero.headline");
+  const stats = t("stats", { returnObjects: true });
+  const { displayed, done } = useTypewriter(headline, 34, 700);
 
   return (
     <section
@@ -66,10 +68,10 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-white/80">
             <MapPin size={14} className="text-sprout" />
-            {profile.location}
+            {t("profile.location")}
           </span>
           <span className="inline-flex items-center rounded-full border border-sprout/30 bg-sprout/10 px-3.5 py-1.5 text-sprout">
-            {profile.role}
+            {t("profile.role")}
           </span>
         </motion.div>
 
@@ -97,10 +99,7 @@ export default function Hero() {
           style={{ "--pd": 14, "--pr": 1 }}
         >
           <p className="text-lg sm:text-xl leading-relaxed text-white/65 font-light">
-            I'm {profile.name.split(" ")[0]} — an AI developer and software
-            engineer. I ship AI products, build physical-AI world models, and
-            stand up the embodied-AI cloud platforms that train and deploy
-            them.
+            {t("hero.lede", { name: profile.name })}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -108,14 +107,14 @@ export default function Hero() {
               href="#projects"
               className="glass-pill inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-medium uppercase tracking-[0.12em] text-white"
             >
-              Explore the work
+              {t("hero.ctaWork")}
               <ArrowUpRight size={17} />
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.12em] text-white/70 hover:text-white transition-colors border-b border-white/25 hover:border-sprout pb-1"
             >
-              Get in touch
+              {t("hero.ctaTouch")}
             </a>
           </div>
         </motion.div>
@@ -152,7 +151,7 @@ export default function Hero() {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-white/45 hover:text-white transition-colors"
       >
-        <span className="[writing-mode:vertical-rl]">Discover</span>
+        <span className="[writing-mode:vertical-rl]">{t("hero.discover")}</span>
         <span className="relative w-px h-12 bg-white/15 overflow-hidden">
           <span className="absolute inset-x-0 top-0 h-2/5 bg-white/75 animate-trickle" />
         </span>

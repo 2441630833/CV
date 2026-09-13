@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
@@ -49,7 +50,15 @@ function usePointerParallax(ref) {
 
 export default function App() {
   const rootRef = useRef(null);
+  const { t, i18n } = useTranslation();
   usePointerParallax(rootRef);
+
+  // Keep document title / description in sync with the active language.
+  useEffect(() => {
+    document.title = t("meta.title");
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", t("meta.description"));
+  }, [i18n.language, t]);
 
   return (
     <div
@@ -100,8 +109,12 @@ export default function App() {
             <span className="text-sprout text-lg leading-none">✳</span>
           </div>
           <p className="text-sm text-white/45">
-            © {new Date().getFullYear()} {profile.name} · {profile.role} ·{" "}
-            {profile.location}
+            {t("footer.rights", {
+              year: new Date().getFullYear(),
+              name: profile.name,
+              role: t("profile.role"),
+              location: t("profile.location"),
+            })}
           </p>
           <a
             href={`mailto:${profile.email}`}

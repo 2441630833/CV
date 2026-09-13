@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { navLinks } from "../data/cv.js";
+import { useTranslation } from "react-i18next";
+import { navSections } from "../data/cv.js";
+import LanguageSwitcher from "./LanguageSwitcher.jsx";
 
-const sectionIds = navLinks.map((l) => l.href.slice(1));
+const sectionIds = navSections.map((l) => l.href.slice(1));
 
 function Mark({ size = 18 }) {
   // sprout / asterisk mark, echoing the Sylva glyph
@@ -25,11 +27,11 @@ function Mark({ size = 18 }) {
 }
 
 function useScrollSpy() {
-  const [active, setActive] = useState(navLinks[0].href);
+  const [active, setActive] = useState(navSections[0].href);
 
   const compute = useCallback(() => {
     const offset = 140;
-    let current = navLinks[0].href;
+    let current = navSections[0].href;
     for (const id of sectionIds) {
       const el = document.getElementById(id);
       if (!el) continue;
@@ -40,7 +42,7 @@ function useScrollSpy() {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - 4
     ) {
-      current = navLinks[navLinks.length - 1].href;
+      current = navSections[navSections.length - 1].href;
     }
     setActive(current);
   }, []);
@@ -61,6 +63,7 @@ function useScrollSpy() {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const active = useScrollSpy();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -75,7 +78,7 @@ export default function Navbar() {
           className="dock flex items-center gap-1 sm:gap-1.5 rounded-2xl p-1.5"
           aria-label="Primary"
         >
-          {navLinks.map((link) => {
+          {navSections.map((link) => {
             const isActive = active === link.href;
             return (
               <a
@@ -88,7 +91,7 @@ export default function Navbar() {
                     : "text-white/45 hover:text-white/90"
                 }`}
               >
-                {link.label}
+                {t(`nav.${link.id}`)}
               </a>
             );
           })}
@@ -97,14 +100,18 @@ export default function Navbar() {
             href="#contact"
             className="dock-item inline-flex items-center gap-2 rounded-lg border border-transparent px-3.5 h-9 sm:h-10 text-[11px] font-medium uppercase tracking-[0.14em] text-white/45 hover:text-white/90 transition-colors duration-200"
           >
-            <span className="hidden sm:inline">Get in touch</span>
-            <span className="sm:hidden">Contact</span>
+            <span className="hidden sm:inline">{t("nav.getInTouch")}</span>
+            <span className="sm:hidden">{t("nav.contact")}</span>
           </a>
+
+          <span className="mx-0.5 hidden sm:block h-5 w-px bg-white/15" aria-hidden="true" />
+
+          <LanguageSwitcher variant="dark" />
 
           {/* mobile hamburger */}
           <button
             type="button"
-            aria-label="Toggle menu"
+            aria-label={t("nav.toggleMenu")}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             className="sm:hidden dock-item flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-lg border border-transparent"
@@ -139,7 +146,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 sm:hidden bg-moss-800/97 backdrop-blur-md flex flex-col justify-center px-8"
           >
             <nav className="flex flex-col gap-2">
-              {navLinks.map((link, i) => {
+              {navSections.map((link, i) => {
                 const isActive = active === link.href;
                 return (
                   <motion.a
@@ -154,7 +161,7 @@ export default function Navbar() {
                       isActive ? "text-sprout" : "text-white/70"
                     }`}
                   >
-                    {link.label}
+                    {t(`nav.${link.id}`)}
                   </motion.a>
                 );
               })}
@@ -163,11 +170,15 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 initial={{ opacity: 0, x: -24 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.08 + navLinks.length * 0.07, duration: 0.4 }}
+                transition={{ delay: 0.08 + navSections.length * 0.07, duration: 0.4 }}
                 className="mt-6 inline-flex items-center gap-3 text-sprout text-xl"
               >
-                Get in touch <Mark size={20} />
+                {t("nav.getInTouch")} <Mark size={20} />
               </motion.a>
+
+              <div className="mt-10">
+                <LanguageSwitcher variant="dark" />
+              </div>
             </nav>
           </motion.div>
         )}

@@ -23,6 +23,10 @@ Thumbs.db
 # agent tooling (not part of the site)
 .agents/
 
+# local latex toolchain / binaries (not part of the site)
+latex/
+tools/
+
 # env
 .env
 .env.local
