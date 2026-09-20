@@ -214,6 +214,27 @@ export default {
         "Official platform of the Chinese Service Center for Scholarly Exchange (CSCSE). I led this project during my time at CSCSE — a flagship study-abroad service platform that has already served hundreds of thousands of students, covering consultation, application support and cross-border study services for Chinese students studying abroad.",
       highlights: ["CSCSE flagship", "Hundreds of thousands of users", "Lead build"],
     },
+    spatiotemporalLocationCloud: {
+      name: "Integrated Spatiotemporal Location Service Cloud Platform",
+      tag: "Geospatial Cloud · Intranet",
+      blurb:
+        "Intranet-operated cloud platform. Designed a scalable architecture supporting large-scale concurrent user operations and applications, and integrated BeiDou high-precision positioning — pseudorange differential, carrier-phase differential, wide-area differential and base-station positioning — for round-the-clock, wide-area real-time positioning. Built a real-time data decoding and quality-analysis pipeline for observational data and multi-station synchronisation, a multi-source spatial-information fusion service across location, fundamental geographic and thematic databases, and a rich application-service-interface layer (indoor positioning, real-time terminal location, thematic e-maps and industry systems).",
+      highlights: ["BeiDou high-precision", "Real-time decoding", "Multi-source fusion", "Service APIs"],
+    },
+    smartLogisticsPark: {
+      name: "Integrated Smart Logistics Park Platform",
+      tag: "Enterprise Web · Intranet",
+      blurb:
+        "Intranet-operated park-management platform. Designed and implemented the organisational-structure module (pagination, query, add, enable/disable and conditional query) and the employee-relationship module (query, add, more actions, delete, conditional query and synchronisation). Delivered core modules for attendance (query, add, delete, sync, conditional query), payroll (query, add, delete, import and digital pay-slip delivery) and performance management (query, add, delete, sync and conditional query).",
+      highlights: ["Org structure", "Attendance & payroll", "Performance", "HR sync"],
+    },
+    digitalSurveyingMapping: {
+      name: "Digital Surveying & Mapping Management Platform",
+      tag: "Geospatial Platform · Intranet",
+      blurb:
+        "Intranet-operated platform. Used a Work Breakdown Structure (WBS) to decompose projects and rationalise progress, deliverables and staffing, with role assignment and leader-approved personnel plans. Planned tasks with clear timelines and owners, imported historical data or referenced standard tasks, and monitored completion and extension requests. Managed production data comprehensively — BeiDou/GNSS, RTK, level and total-station measurements plus adjustment results and analysis reports — with unified storage and query across documents, images, audio and video, and visualised surveying data on a digital globe.",
+      highlights: ["WBS planning", "GNSS/RTK data", "Multi-format archive", "Digital globe"],
+    },
     uigenius: {
       name: "Uigenius",
       tag: "AI Product · Lead",

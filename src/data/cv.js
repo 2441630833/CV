@@ -72,6 +72,9 @@ export const projects = [
     id: "studyAbroadAssistant",
     links: [{ label: "cglxzs.cscse.edu.cn", url: "https://cglxzs.cscse.edu.cn/" }],
   },
+  { id: "spatiotemporalLocationCloud", links: [] },
+  { id: "smartLogisticsPark", links: [] },
+  { id: "digitalSurveyingMapping", links: [] },
   {
     id: "uigenius",
     links: [
