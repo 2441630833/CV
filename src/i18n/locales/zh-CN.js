@@ -185,6 +185,13 @@ export default {
         "为 NVIDIA Isaac Sim 平台创新并升级了 WebRTC。诊断了在 targetFps=120 + NVENC 下 x86 WebRTC 直播卡在约 60 FPS 的问题，并将修复贡献到 NVIDIA Isaac Sim 官方 GitHub 仓库。",
       highlights: ["WebRTC", "NVENC", "上游修复"],
     },
+    isaacSimPhysics: {
+      name: "NVIDIA Isaac Sim 物理性能问题排查",
+      tag: "开源 · 上游贡献",
+      blurb:
+        "排查了 Isaac Sim 6.0.1 中严重的帧率暴跌问题（NVIDIA GB10、WebRTC 直播）：一个几乎静止的 SimReady 厨房场景在暂停时约 62 FPS，播放时跌至 19–24 FPS，仅物理步进就耗时约 26 ms。在 CPU 与 GPU dynamics 之间复现了稳定的 A/B 测量结果，确认 omni.physx 仅遵循 USD prim 属性 physxScene:enableGpuDynamics，并将详细报告提交至上游。",
+      highlights: ["物理性能剖析", "GPU 动力学", "上游问题报告"],
+    },
     embodiedCloud: {
       name: "具身智能云平台",
       tag: "平台 · 索辰",

@@ -54,6 +54,15 @@ export const projects = [
       },
     ],
   },
+  {
+    id: "isaacSimPhysics",
+    links: [
+      {
+        label: "Isaac Sim issue #811",
+        url: "https://github.com/isaac-sim/IsaacSim/issues/811",
+      },
+    ],
+  },
   { id: "embodiedCloud", links: [] },
   {
     id: "suochenWebsite",

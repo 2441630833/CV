@@ -186,6 +186,13 @@ export default {
         "Innovated and upgraded WebRTC for the NVIDIA Isaac Sim platform. Diagnosed the x86 WebRTC livestream stuck at ~60 FPS with targetFps=120 + NVENC and contributed the fix to the official NVIDIA Isaac Sim GitHub repository.",
       highlights: ["WebRTC", "NVENC", "Upstream fix"],
     },
+    isaacSimPhysics: {
+      name: "NVIDIA Isaac Sim Physics Performance Investigation",
+      tag: "Open Source · Upstream",
+      blurb:
+        "Investigated a severe FPS collapse in Isaac Sim 6.0.1 (NVIDIA GB10, WebRTC livestream): a mostly-frozen SimReady kitchen scene dropped from 62 FPS paused to 19–24 FPS playing, with the physics step alone costing ~26 ms. Reproduced stable A/B measurements across CPU vs GPU dynamics, confirmed that omni.physx only honours the USD prim attribute physxScene:enableGpuDynamics, and filed the detailed report upstream.",
+      highlights: ["Physics profiling", "GPU dynamics", "Upstream report"],
+    },
     embodiedCloud: {
       name: "Embodied-AI Cloud Platform",
       tag: "Platform · Suochen",
