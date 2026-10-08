@@ -3,8 +3,8 @@
 export default {
   meta: {
     description:
-      "Tim — AI Developer & Software Engineer in Shanghai. Building physical-AI world models, embodied-AI cloud platforms and AI products end to end.",
-    title: "Tim® — AI Developer & Software Engineer",
+      "Longze — AI Developer & Software Engineer in Shanghai. Building physical-AI world models, embodied-AI cloud platforms and AI products end to end.",
+    title: "Longze® — AI Developer & Software Engineer",
   },
 
   profile: {
@@ -288,8 +288,8 @@ export default {
     mail: {
       subject: "Let's talk — {{topics}}",
       subjectFallback: "Let's talk — a project",
-      body: "Hi Tim,\n\nI'm reaching out about: {{topics}}\n\n",
-      bodyFallback: "Hi Tim,\n\nI'm reaching out about: ...\n\n",
+      body: "Hi Longze,\n\nI'm reaching out about: {{topics}}\n\n",
+      bodyFallback: "Hi Longze,\n\nI'm reaching out about: ...\n\n",
     },
   },
 

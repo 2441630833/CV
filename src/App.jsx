@@ -82,7 +82,7 @@ export default function App() {
         className="ghost-word pointer-events-none fixed -bottom-6 left-0 z-0 hidden lg:block text-[16rem] font-light leading-none whitespace-nowrap"
         aria-hidden="true"
       >
-        TIM
+        LONGZE
         </div>
 
       <main className="relative z-10">

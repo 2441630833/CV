@@ -3,9 +3,9 @@
 // stable ids defined here, so the site is fully bilingual (English / 简体中文).
 
 export const profile = {
-  name: "Tim",
-  handle: "tim",
-  initials: "T",
+  name: "Longze",
+  handle: "longze",
+  initials: "L",
   email: "longzezhu1@outlook.com",
   phone: "+86 18722502660",
   blog: "https://blog.csdn.net/kentturing",

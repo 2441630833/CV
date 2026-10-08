@@ -2,8 +2,8 @@
 export default {
   meta: {
     description:
-      "Tim —— 位于上海的 AI 开发者与软件工程师。端到端打造物理 AI 世界模型、具身智能云平台与 AI 产品。",
-    title: "Tim® — AI 开发者与软件工程师",
+      "Longze —— 位于上海的 AI 开发者与软件工程师。端到端打造物理 AI 世界模型、具身智能云平台与 AI 产品。",
+    title: "Longze® — AI 开发者与软件工程师",
   },
 
   profile: {
@@ -286,8 +286,8 @@ export default {
     mail: {
       subject: "想和你聊聊 — {{topics}}",
       subjectFallback: "想和你聊聊 — 一个项目",
-      body: "Tim 你好，\n\n我联系你是想聊：{{topics}}\n\n",
-      bodyFallback: "Tim 你好，\n\n我联系你是想聊：...\n\n",
+      body: "Longze 你好，\n\n我联系你是想聊：{{topics}}\n\n",
+      bodyFallback: "Longze 你好，\n\n我联系你是想聊：...\n\n",
     },
   },
 
