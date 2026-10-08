@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// GitHub Pages serves the site from https://<user>.github.io/CV/,
-// so all built asset URLs must be rooted at /CV/ rather than /.
+// The site is served from the custom domain root (https://longze.si/),
+// so built asset URLs must be rooted at / rather than /CV/.
 export default defineConfig({
-  base: "/CV/",
+  base: "/",
   plugins: [react()],
 });
