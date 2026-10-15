@@ -40,7 +40,7 @@ export const projects = [
   {
     id: "mobius",
     links: [
-      { label: "github.com/2441630833/Mobius", url: "https://github.com/2441630833/Mobius" },
+      { label: "mobiusai.si", url: "https://mobiusai.si" },
     ],
   },
   { id: "physicalWorldModel", links: [] },
